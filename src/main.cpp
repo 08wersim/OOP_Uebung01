@@ -24,16 +24,22 @@
 
 #include <Arduino.h>
 
-#define LED1 2    // Low-side switch (leuchtet mit LOW)
-#define LED2 3   // Low-side switch (leuchtet mit LOW)
-#define TASTER1 4 // LOW wenn gedrückt
-#define TASTER2 5 // LOW wenn gedrückt
+#define LED1 6    // Low-side switch (leuchtet mit LOW)
+#define LED2 5   // Low-side switch (leuchtet mit LOW)
+#define TASTER1 7 // LOW wenn gedrückt
+#define TASTER2 8 // LOW wenn gedrückt
 #define POT1 A7   
 
 void setup()
 {
     Serial.begin(115200); // Baud rate
     Serial.println("..Start..\n");
+
+    pinMode(TASTER1, INPUT_PULLUP);
+    pinMode(TASTER2, INPUT_PULLUP);
+    pinMode(LED1, OUTPUT);
+    pinMode(LED2, OUTPUT);
+    
 }
 
 void loop()
