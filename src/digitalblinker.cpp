@@ -1,7 +1,7 @@
 #include "digitalblinker.h"
 #include <Arduino.h>
 
-// Pin1, Pin2, blinktime [ms],  enable
+// Pin1, Pin2, invertiert pin1, invertiert pin2,  enable
 void blinker::init(uint8_t _pin1, uint8_t _pin2, bool _enable, bool _inv1, bool _inv2)
 {
     pin1 = _pin1,
