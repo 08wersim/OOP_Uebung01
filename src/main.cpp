@@ -63,7 +63,7 @@ void setup()
     taster1.init(TASTER1, false, 20, TIME_LONGPRESS);
     taster2.init(TASTER2, false, 20, TIME_LONGPRESS);
 
-    analogbl.init(LED1, LED2, 25, true, true);
+    analogbl.init(LED1, LED2, 25, true, false);
 
     digiblinker.init(LED1, LED2, false, false, false);
 }
