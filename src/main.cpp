@@ -28,7 +28,19 @@
 #define LED2 6    // leuchtet mit high
 #define TASTER1 7 // LOW wenn gedrückt
 #define TASTER2 8 // LOW wenn gedrückt
-#define POT1 A7   
+#define POT1 A7 
+#define TIME_LONGPRESS 1000 // [ms]
+
+#include "analogblinker.h"
+#include "helper.h"
+#include "digitalblinker.h"
+
+button taster1;
+button taster2;
+
+analogblinker analogbl;
+
+blinker digiblinker;
 
 void setup()
 {
@@ -39,7 +51,13 @@ void setup()
     pinMode(TASTER2, INPUT_PULLUP);
     pinMode(LED1, OUTPUT);
     pinMode(LED2, OUTPUT);
-    
+
+    taster1.init(TASTER1, false, 20, TIME_LONGPRESS);
+    taster2.init(TASTER2, false, 20, TIME_LONGPRESS);
+
+    analogbl.init(LED1, LED2, 250, 25, true, true);
+
+    digiblinker.init();
 }
 
 
@@ -47,4 +65,10 @@ void setup()
 
 void loop()
 {
+    taster1.poll();
+    taster2.poll();
+
+    analogbl.poll();
+    
+    digiblinker.poll();
 }
