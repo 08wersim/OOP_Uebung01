@@ -9,7 +9,7 @@ void analogblinker::init(uint8_t _pin1, uint8_t _pin2, uint8_t _polltime, bool _
     enable = _enable;
 }
 
-void analogblinker::poll()
+void analogblinker::poll(uint16_t blinkTime)
 {
     if (!enable)
     {
@@ -19,7 +19,7 @@ void analogblinker::poll()
     }
     else if (millis() - lastpoll > polltime)
     {
-        step = 256 / ( / polltime);
+        step = 256 / ( blinkTime / polltime);
         dutycycle += step;
         if (dutycycle >= 511)
         {

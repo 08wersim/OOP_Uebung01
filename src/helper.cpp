@@ -6,7 +6,6 @@
 
 void button::init(uint8_t _pinNr, bool _neg, uint8_t _debounce_time, uint16_t _longpress_time)
 {
-    analogblinker test;
     pinNr = _pinNr;
     neg = _neg;
     debounce_time = _debounce_time;
