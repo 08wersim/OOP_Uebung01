@@ -11,7 +11,6 @@ void button::init(uint8_t _pinNr, bool _neg, uint8_t _debounce_time, uint16_t _l
     debounce_time = _debounce_time;
     longpress_time = _longpress_time;
 
-    pinMode(pinNr, INPUT);
     debounced = db_last = last = digitalRead(pinNr); // ..damit nicht schon beim Start eine Flanke ausgelöst wird..
 }
 
