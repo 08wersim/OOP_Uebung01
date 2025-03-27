@@ -20,8 +20,6 @@ private:
     unsigned long lastpoll = 0;
     uint8_t pin1 = 0, pin2 = 0;
     uint16_t dutycycle = 0;
-    uint16_t blinkTime = 0;
-
 };
 
 #endif

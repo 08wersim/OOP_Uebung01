@@ -1,18 +1,9 @@
 #include "analogblinker.h"
 
-void analogblinker::setblinktime(uint16_t bt)
-{
-    if (bt <= 1000 && bt >= 10)
-        blinkTime = bt; 
-    else
-        Serial.println("..falscher Wert..");
-}
-
-void analogblinker::init(uint8_t _pin1, uint8_t _pin2, uint16_t _blinkTime, uint8_t _polltime, bool _sync, bool _enable)
+void analogblinker::init(uint8_t _pin1, uint8_t _pin2, uint8_t _polltime, bool _sync, bool _enable)
 {
     pin1 = _pin1;
     pin2 = _pin2;
-    blinkTime = _blinkTime;
     polltime = _polltime;
     sync = _sync;
     enable = _enable;
@@ -28,7 +19,7 @@ void analogblinker::poll()
     }
     else if (millis() - lastpoll > polltime)
     {
-        step = 256 / (blinkTime / polltime);
+        step = 256 / ( / polltime);
         dutycycle += step;
         if (dutycycle >= 511)
         {

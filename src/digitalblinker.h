@@ -8,7 +8,7 @@ public:
 
 bool enable;
 void init(uint8_t, uint8_t, bool, bool, bool);
-void poll();
+void poll(uint16_t);
 
 private:
 
