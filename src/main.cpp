@@ -42,6 +42,14 @@ analogblinker analogbl;
 
 blinker digiblinker;
 
+uint16_t blinktime = 500;
+
+uint8_t convertDvToBt(uint16_t n)
+{
+    uint16_t bt = 950.f/1023 * n + 50;
+    return bt;
+};
+
 void setup()
 {
     Serial.begin(115200); // Baud rate
@@ -57,7 +65,7 @@ void setup()
 
     analogbl.init(LED1, LED2, 250, 25, true, true);
 
-    digiblinker.init();
+    digiblinker.init(LED1, LED2, false, false, false);
 }
 
 
@@ -65,10 +73,12 @@ void setup()
 
 void loop()
 {
+    blinktime = convertDvToBt(analogRead(POT1));
+
     taster1.poll();
     taster2.poll();
 
-    analogbl.poll();
+    analogbl.poll(blinktime);
     
-    digiblinker.poll();
+    digiblinker.poll(blinktime);
 }
