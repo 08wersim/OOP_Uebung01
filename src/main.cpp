@@ -60,8 +60,8 @@ void setup()
     pinMode(LED1, OUTPUT);
     pinMode(LED2, OUTPUT);
 
-    taster1.init(TASTER1, false, 20, TIME_LONGPRESS);
-    taster2.init(TASTER2, false, 20, TIME_LONGPRESS);
+    taster1.init(TASTER1, true, 20, TIME_LONGPRESS);
+    taster2.init(TASTER2, true, 20, TIME_LONGPRESS);
 
     analogbl.init(LED1, LED2, 25, true, false);
 
@@ -78,7 +78,16 @@ void loop()
     taster1.poll();
     taster2.poll();
 
+    if (taster1.rising)
+    {
+        analogbl.enable = !analogbl.enable;
+    }
+
+    else if (taster2.rising)
+    {
+        digiblinker.enable = !digiblinker.enable;
+    }
+
     analogbl.poll(blinktime);
-    
     digiblinker.poll(blinktime);
 }
