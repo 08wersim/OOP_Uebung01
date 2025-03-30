@@ -80,12 +80,12 @@ void loop()
 
     if (taster1.rising)
     {
-        analogbl.enable = !analogbl.enable;
+        analogbl.enable = 1;
     }
 
     else if (taster2.rising)
     {
-        digiblinker.enable = !digiblinker.enable;
+        digiblinker.enable = 1;
     }
 
     analogbl.poll(blinktime);
