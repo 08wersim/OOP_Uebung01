@@ -15,8 +15,8 @@ private:
 unsigned long lastblink;
 bool inv1 = false, inv2 = false;
 uint8_t pin1, pin2;
-uint16_t blinktime;
-uint8_t convertDvToBt(uint16_t);
+// uint16_t blinktime;
+// uint8_t convertDvToBt(uint16_t);
 
 };
 

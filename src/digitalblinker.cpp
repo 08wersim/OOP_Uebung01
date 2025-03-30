@@ -2,14 +2,14 @@
 #include <Arduino.h>
 
 // Pin1, Pin2, invertiert pin1, invertiert pin2,  enable
-void blinker::init(uint8_t _pin1, uint8_t _pin2, bool _enable, bool _inv1, bool _inv2)
+void blinker::init(uint8_t _pin1, uint8_t _pin2, bool _inv1, bool _inv2, bool _enable)
 {
     pin1 = _pin1,
     pin2 = _pin2;
     // blinktime = _blinktime;
-    enable = _enable;
     inv1 = _inv1;
     inv2 = _inv2;
+    enable = _enable;
 }
 void blinker::poll(uint16_t blinktime)
 {
