@@ -44,7 +44,7 @@ blinker digiblinker;
 
 uint16_t blinktime = 500;
 
-uint8_t convertDvToBt(uint16_t n)
+uint16_t convertDvToBt(uint16_t n)
 {
     uint16_t bt = 950.f/1023 * n + 50;
     return bt;
