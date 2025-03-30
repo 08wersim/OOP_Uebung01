@@ -13,8 +13,6 @@ void analogblinker::poll(uint16_t blinkTime)
 {
     if (!enable)
     {
-        analogWrite(pin1, 0);
-        analogWrite(pin2, 0);
         return;
     }
     else if (millis() - lastpoll > polltime)

@@ -88,6 +88,8 @@ void loop()
     {
         digiblinker.enable = false;
         analogbl.enable = false;
+        digitalWrite(LED1, LOW);
+        digitalWrite(LED2, LOW);
     }
 
     else 
