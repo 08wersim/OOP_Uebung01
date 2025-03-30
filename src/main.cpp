@@ -69,6 +69,7 @@ void setup()
 }
 
 
+bool canBlink = 0;
 
 
 void loop()
@@ -78,15 +79,32 @@ void loop()
     taster1.poll();
     taster2.poll();
 
-    if (taster1.rising)
+    if (taster1.longpress || taster2.longpress)
     {
-        analogbl.enable = !analogbl.enable;
+        canBlink = !canBlink;
     }
 
-    else if (taster2.rising)
+    if (!canBlink)
     {
-        digiblinker.enable = !digiblinker.enable;
+        digiblinker.enable = false;
+        analogbl.enable = false;
     }
+
+    else 
+    {
+        if (taster1.rising)
+        {
+            analogbl.enable = true;
+            digiblinker.enable = false;
+        }
+    
+        else if (taster2.rising)
+        {
+            analogbl.enable = false;
+            digiblinker.enable = true;
+        }
+    }
+
 
     analogbl.poll(blinktime);
     digiblinker.poll(blinktime);
