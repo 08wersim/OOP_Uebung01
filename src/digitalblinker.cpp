@@ -36,7 +36,7 @@ void blinker::poll(uint16_t blinktime)
 
                 digitalWrite(pin1, !digitalRead(pin1));
                 digitalWrite(pin2, !digitalRead(pin1));
-                Serial.println("vorgang ausgeführt");
+                // Serial.println("vorgang ausgeführt");
 
                 // // Serial.println("nacher");
                 // Serial.println(pin1);
